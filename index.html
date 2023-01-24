@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+var blueplayer = "Green";
+var playerYell = "Blue";
+var curplayer = blueplayer;
+var theendofit = false;
+var brvs;
+var CC;
+var vghh= 8;
+var cccsss = 9;
+window.onload = function() {
+    starterup();
+}
+function starterup(){
+    brvs = [];
+    CC = [7, 7, 7, 7, 7, 7, 7];
+    for (let f = 0; f < vghh; f++){
+        let rvalv = [];
+        for(let v = 0; v < cccsss; v++){
+            rvalv.push(' ');
+            let bill = document.createElement("div");
+            bill.id = f.toString() + "-" + v.toString();
+            bill.classList.add("bill");
+            bill.addEventListener("click", putdown)
+            document.getElementById("board").append(bill);
+        }
+        brvs.push(rvalv);
+    }
+}
+
+function putdown() {
+    if(theendofit) return;
+
+    let ordin = this.id.split("-");  
+    let rvalve = parseInt(ordin[0]);
+    let cvalve = parseInt(ordin[1]);
+
+    rvalve = CC[cvalve];
+    if(rvalve < 0){
+        return;
+    }
+    brvs[rvalve][cvalve] = curplayer;
+    let bill = document.getElementById(rvalve.toString() + "-" + cvalve.toString());
+    if(curplayer == blueplayer) {
+        bill.classList.add("red-chip");
+        curplayer = playerYell;
+    }
+    else{
+        bill.classList.add("yellow-chip");
+        curplayer = blueplayer;
+    }
+    rvalve -= 1;
+    CC[cvalve] = rvalve;
+
+    fourinarow();
+}
+
+
+
+    </script>
+</head>
+<body>
+    <h1>Play a connect four game</h1>
+    <p>Rules are simple, click a colum and if you get four in a row vertically, horizontally and diagnolly, you win.</p>
+    <h2 id="win"></h2>
+    <div id="board"></div>
+</body>
+</html>
