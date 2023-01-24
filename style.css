@@ -24,6 +24,13 @@ body{
 }
 .yellow-chip {
     background-color: brown;
+}
+.win{
+    font-size: 35px;
+    color: springgreen;
+}
+h1{
+    color: darkgreen
 } 
 p{
     font-size: 35px;
