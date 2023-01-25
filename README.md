@@ -18,7 +18,7 @@ Change the game to a connected five by using a larger grid. Same rules of vertic
 
 Use a “trap”, so if there are three chips that are about to be connected, 20% of the time, the program will randomly generate a chip that is neither brown or sky blue, but blocks the potential fourth chip from being placed to win the game. 
 
-Program
+Program:
 
 Knowing how to program arrays are essential
 
